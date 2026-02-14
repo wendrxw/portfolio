@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerando Logs com Python | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../index.html#articles"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Gerando Logs com Python</h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Python
+            </div>
+
+            <div class="article-content">
+                <p>Nesse artigo, iremos trabalhar com a geração de logs em python, utilizando o módulo <em>logging</em>.
+                </p>
+
+                <p><strong>Retirado da documentação oficial do python</strong>: "<em>Este módulo define funções e
+                        classes que implementam um sistema de registro de eventos flexível para aplicativos e
+                        bibliotecas.</em>"</p>
+
+                <p>O que a descrição acima quer dizer?</p>
+                <ul>
+                    <li>Bem, imagine o seguinte cenário: Temos uma função que realiza retorna o nome completo de uma
+                        pessoa, os parâmetros dessa função são <em>primeiro_nome</em> e <em>ultimo_nome</em>, ambos
+                        aceitam strings como entrada, mas imagine que, por um motivo de força maior (pense nessa
+                        situação como algo para mérito de compreensão) a entrada seja do tipo booleano (True/False),
+                        nesse caso teríamos um erro e gostaríamos que o sistema reportasse essa mensagem de erro para
+                        nós. E é para isso, que temos esse módulo no python.</li>
+                </ul>
+
+                <h3>Vamos abordar o exemplo acima de forma prática</h3>
+                <ol>
+                    <li>Crie uma pasta para armazenar nosso codigo;</li>
+                    <li>Crie um arquivo chamado <em>app.py</em>.</li>
+                </ol>
+
+                <p>Dentro do nosso arquivo <em>app.py</em> iremos importar o módulo <em>logging</em>:</p>
+                <pre><code>import logging</code></pre>
+
+                <p>Feito isso, iremos definir a formatação do nosso log:</p>
+                <img src="../media/uploads/2024/08/28/image_JR9u6Fp.png" alt="Formatação Log"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Em seguida, definiremos as configurações do log e sua instancia:</p>
+                <img src="../media/uploads/2024/08/28/image_N9yDKOZ.png" alt="Configuração Log"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>O módulo contém varios tipos de niveis de mensagens:</p>
+
+                <table
+                    style="width: 100%; border-collapse: collapse; margin: 1rem 0; background-color: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden;">
+                    <thead>
+                        <tr style="background-color: rgba(255,255,255,0.1);">
+                            <th style="padding: 1rem; text-align: left;">Level</th>
+                            <th style="padding: 1rem; text-align: left;">Numeric value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.8rem;"><code>CRITICAL</code></td>
+                            <td style="padding: 0.8rem;">50</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem;"><code>ERROR</code></td>
+                            <td style="padding: 0.8rem;">40</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem;"><code>WARNING</code></td>
+                            <td style="padding: 0.8rem;">30</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem;"><code>INFO</code></td>
+                            <td style="padding: 0.8rem;">20</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem;"><code>DEBUG</code></td>
+                            <td style="padding: 0.8rem;">10</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem;"><code>NOTSET</code></td>
+                            <td style="padding: 0.8rem;">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Até aqui definimos as configurações do nosso log, agora vamos colocar isso tudo em pratica, de fato.
+                </p>
+
+                <p>Vamos fazer uma função que receba o <em>primeiro_nome</em> e o <em>segundo_nome</em> de uma pessoa e
+                    retorne o log dessa função no nosso arquivo <em>exemplo.log</em> (definido logo acima):</p>
+                <img src="../media/uploads/2024/08/28/image_J3lvZGr.png" alt="Função Exemplo"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Segue nosso codigo completo:</p>
+                <img src="../media/uploads/2024/08/28/image_sx4LkHC.png" alt="Código Completo"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>O retorno desse codigo ficará dentro do arquivo <em>exemplo.log</em> no mesmo caminho do arquivo
+                    <em>app.py</em> e terá a seguinte forma:</p>
+                <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--B8PMt3dj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/s6jnwumln9pjoq2yupoy.png"
+                    alt="Resultado Log" style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Esse é o modo mais convencional de retorno de mensagens aos desenvolvedores, quando o sistema ja esta
+                    em produção.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

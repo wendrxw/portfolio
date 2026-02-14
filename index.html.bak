@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wendrew Oliveira | Senior Python Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <!-- Placeholder for FontAwesome -->
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 1rem; left: 50%; transform: translateX(-50%); width: 90%; max-width: 800px; z-index: 1000; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo" style="font-family: var(--font-heading); font-weight: bold; color: var(--accent-color);">WDRXW
+        </div>
+        <div class="nav-links" style="display: flex; gap: 2rem;">
+            <a href="#about" style="color: var(--text-color); text-decoration: none; font-size: 0.9rem;">Sobre</a>
+            <a href="#skills" style="color: var(--text-color); text-decoration: none; font-size: 0.9rem;">Skills</a>
+            <a href="#projects" style="color: var(--text-color); text-decoration: none; font-size: 0.9rem;">Projetos</a>
+            <a href="#contact" style="color: var(--text-color); text-decoration: none; font-size: 0.9rem;">Contato</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero">
+            <h1>Wendrew Oliveira</h1>
+            <p id="typing-text">Senior Python Developer | Linux Enthusiast</p>
+            <div style="margin-top: 2rem;">
+                <a href="#projects" class="glass"
+                    style="color: var(--accent-color); text-decoration: none; padding: 0.8rem 2rem; border-radius: 30px; border: 1px solid var(--accent-color);">Ver
+                    Projetos</a>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <div class="glass">
+                <h2>Sobre Mim</h2>
+                <p style="margin-top: 1.5rem;">
+                    Sou Desenvolvedor Python Sênior com mais de 8 anos de experiência na construção de soluções backend
+                    escaláveis, APIs REST e sistemas distribuídos. Atualmente sou pós-graduando em Engenharia de
+                    Software, focando em arquitetura e qualidade.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Especialista em ecossistema Python (FastAPI, Django, Flask) e infraestrutura AWS, com forte domínio
+                    de Linux e automação. Também exploro o mundo da programação funcional com Haskell para modelar
+                    sistemas complexos com maior confiabilidade.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <h2>Habilidades Core</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div class="glass">
+                    <h3>Python</h3>
+                    <p>FastAPI, Django, Flask</p>
+                </div>
+                <div class="glass">
+                    <h3>Cloud</h3>
+                    <p>AWS (Serverless, SQS, SNS)</p>
+                </div>
+                <div class="glass">
+                    <h3>DevOps</h3>
+                    <p>Linux Avançado, Docker, CI/CD</p>
+                </div>
+                <div class="glass">
+                    <h3>Arquitetura</h3>
+                    <p>Clean Architecture, Microsserviços</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Projetos em Destaque</h2>
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <!-- Projects will be populated here -->
+                <div class="glass">
+                    <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 0.5rem;">Python |
+                        Selenium | BS4</div>
+                    <h3>crawler-verx-serasa</h3>
+                    <p>Crawler avançado para extração automatizada de informações cadastrais e análise de dados com
+                        Selenium e BeautifulSoup.</p>
+                    <a href="https://github.com/wendrxw/crawler-verx-serasa" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                        onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                        onmouseout="this.style.borderBottom='1px solid transparent'">GitHub Code <i
+                            class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
+                </div>
+                <div class="glass">
+                    <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 0.5rem;">Haskell |
+                        Functional</div>
+                    <h3>transfer-simulator</h3>
+                    <p>Demonstração técnica de lógica de negócios e segurança de tipos utilizando Haskell para simulação
+                        de transferências financeiras.</p>
+                    <a href="https://github.com/wendrxw/transfer-simulator" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                        onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                        onmouseout="this.style.borderBottom='1px solid transparent'">GitHub Code <i
+                            class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
+                </div>
+                <div class="glass">
+                    <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 0.5rem;">Python | HTTP
+                        Library</div>
+                    <h3>ehr</h3>
+                    <p>Biblioteca customizada para requisições HTTP em Python, focada em simplicidade e performance para
+                        integrações backend.</p>
+                    <a href="https://github.com/wendrxw/ehr" target="_blank"
+                        style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                        onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                        onmouseout="this.style.borderBottom='1px solid transparent'">GitHub Code <i
+                            class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container" style="text-align: center;">
+            <div class="glass">
+                <h2>Vamos Conversar?</h2>
+                <p style="margin: 1.5rem 0;">Interessado em colaboração ou apenas quer bater um papo técnico?</p>
+                <div style="display: flex; justify-content: center; gap: 2rem;">
+                    <a href="https://github.com/wendrxw" style="color: var(--accent-color); font-size: 2rem;"><i
+                            class="fab fa-github"></i></a>
+                    <a href="#" style="color: var(--accent-color); font-size: 2rem;"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:contato@exemplo.com" style="color: var(--accent-color); font-size: 2rem;"><i
+                            class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: #666; font-size: 0.8rem;">
+        &copy; 2026 Wendrew Oliveira. Ribeirão Preto, SP.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

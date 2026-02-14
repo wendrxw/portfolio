@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django e Design Patterns | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../articles.html"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Django e Design Patterns</h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Django
+            </div>
+
+            <div class="article-content">
+                <p>Esse texto é direcionado ao pessoal que ainda não conhece o conceito de DRY e o framework django, vou
+                    tentar ser o mais direto e limpo possivel nas explicações desse tópico.</p>
+
+                <p>Primeiramente, vamos falar do framework, Django é um framework para desenvolvimento rápido para web,
+                    escrito em Python, que utiliza o padrão model-template-view (MTV). Foi criado originalmente como
+                    sistema para gerenciar um site jornalístico na cidade de Lawrence, no Kansas. Tornou-se um projeto
+                    de código aberto e foi publicado sob a licença BSD em 2005.</p>
+
+                <p>Django utiliza o princípio DRY (Don’t Repeat Yourself), onde faz com que o desenvolvedor aproveite ao
+                    máximo o código já feito, evitando a repetição. O Django só é chamado de um framework MTV pois o
+                    controller é gerenciado pelo próprio framework e a maior parte das coisas acontece no model,
+                    templates e views.</p>
+
+                <p>Agora que ja sabe um pouco do framework, vamos entender o que é DRY.</p>
+                <p>DRY é o acrônimo para Don’t repeat yourself, ao pé da letra ficaria assim, em português, ‘Não repita
+                    a si mesmo’. O princípio do DRY é evitar a repetição de qualquer parte do sistema abstraindo as
+                    coisas que são comuns entre si e colocá-las em um lugar único. Esse princípio não se preocupa
+                    somente com o código, mas qualquer lógica que está duplicada no sistema.</p>
+
+                <p>A documentação do framework cita a seguinte coluna:</p>
+                <blockquote>
+                    <p>“Cada conceito distinto e/ou dado deve estar em um, e apenas um, lugar. Redundância é ruim.
+                        Normalização é bom. O framework deve deduzir, razoavelmente, o máximo possível do mínimo
+                        possível.”</p>
+                </blockquote>
+
+                <h3>O que são Design Patterns?</h3>
+                <p>Design patterns (padrões de projeto) surgiram com a motivação de ajudar a solucionar problemas que
+                    ocorrem frequentemente. Existem alguns principios de Design patterns e tentarei ser o mais simplista
+                    possivel para que o entendimento fique mais facil.</p>
+
+                <p><strong>- Keep it simple stupid (KISS)</strong></p>
+                <p><strong>Mantenha isso estupidamente simples:</strong></p>
+                <p>O objetivo do KISS é fazer com que o projeto seja o mais simples, mas não simplista, evitando assim,
+                    complexidade desnecessaria.</p>
+
+                <p><strong>- Don’t repeat yourself (DRY)</strong></p>
+                <p><strong>Não repita você mesmo:</strong></p>
+                <p>O princípio do DRY é evitar a repetição de qualquer parte do sistema abstraindo as coisas que são
+                    comuns entre si e colocá-las em um lugar único.</p>
+
+                <p><strong>- Tell, Don’t Ask</strong></p>
+                <p><strong>Fale, não pergunte:</strong></p>
+                <p>O princípio afirma que você deve dizer aos objetos quais ações você quer que eles realizem, ao invés
+                    de fazer perguntas sobre o estado do objeto e então tomar uma decisão por si próprio em cima da ação
+                    que você quer realizar.</p>
+
+                <p><strong>-You Ain’t Gonna Need It (YAGNI)</strong></p>
+                <p><strong>Você não vai precisar disso:</strong></p>
+                <p>O princípio YAGNI se refere a necessidade de adicionar somente as funcionalidades que são necessárias
+                    para a aplicação e deixar de lado qualquer tentação de adicionar outras funcionalidades que você
+                    acha que precisa.</p>
+
+                <p><strong>-Separations of Concerns (SoC)</strong></p>
+                <p><strong>Separação de responsabilidades:</strong></p>
+                <p>SoC é o processo de dissecação de uma parte de software em distintas características. O ato de
+                    separar um programa em discretas responsabilidades aumenta significativamente a reutilização de
+                    código, manutenção e testabilidade.</p>
+
+                <p>Abordei alguns tópicos importantes sobre o assunto de design patterns e django, na realidade mostrei
+                    mais um pouco dos dois mundo, tanto do framework quanto sobre os padrões de projetos e suas
+                    caracteristicas.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

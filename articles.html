@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <div class="nav-links" style="display: flex; gap: 2rem;">
+                <a href="index.html"
+                    style="color: var(--text-color); text-decoration: none; font-size: 0.9rem;">Home</a>
+                <a href="articles.html"
+                    style="color: var(--accent-color); text-decoration: none; font-size: 0.9rem; font-weight: bold;">Artigos</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <h1 style="font-size: 3rem; margin-bottom: 3rem; text-align: center;">Todos os Artigos</h1>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+            <!-- Artigo 1 -->
+            <div class="glass">
+                <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 1rem;"><i
+                        class="fab fa-python"></i> Flask</div>
+                <h3>Flask Command Line Interface</h3>
+                <p style="margin-top: 1rem;">Explorando o CLI do micro-framework Flask e aprendendo a criar comandos
+                    personalizados com Click.</p>
+                <a href="articles/flask-cli.html" class="article-link"
+                    style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1.5rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                    onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                    onmouseout="this.style.borderBottom='1px solid transparent'">Ler Artigo <i
+                        class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+
+            <!-- Artigo 2 -->
+            <div class="glass">
+                <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 1rem;"><i
+                        class="fab fa-python"></i> Python</div>
+                <h3>Gerando Logs com Python</h3>
+                <p style="margin-top: 1rem;">Aprenda a implementar um sistema de logs flexível e profissional em suas
+                    aplicações Python.</p>
+                <a href="articles/python-logging.html" class="article-link"
+                    style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1.5rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                    onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                    onmouseout="this.style.borderBottom='1px solid transparent'">Ler Artigo <i
+                        class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+
+            <!-- Artigo 3 -->
+            <div class="glass">
+                <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 1rem;"><i
+                        class="fab fa-python"></i> Django</div>
+                <h3>Buscas com Django</h3>
+                <p style="margin-top: 1rem;">Guia passo a passo de como realizar buscas de registros e listagens no
+                    banco de dados com Django.</p>
+                <a href="articles/django-search.html" class="article-link"
+                    style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1.5rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                    onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                    onmouseout="this.style.borderBottom='1px solid transparent'">Ler Artigo <i
+                        class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+
+            <!-- Artigo 4 -->
+            <div class="glass">
+                <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 1rem;"><i
+                        class="fab fa-python"></i> Django</div>
+                <h3>Mapeando BD Legados (Pt 1)</h3>
+                <p style="margin-top: 1rem;">Como utilizar o comando inspectdb do Django para mapear e integrar bancos
+                    de dados já existentes.</p>
+                <a href="articles/django-legacy-db-1.html" class="article-link"
+                    style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1.5rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                    onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                    onmouseout="this.style.borderBottom='1px solid transparent'">Ler Artigo <i
+                        class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+
+            <!-- Artigo 5 -->
+            <div class="glass">
+                <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 1rem;"><i
+                        class="fab fa-python"></i> Django</div>
+                <h3>Mapeando BD Legados (Pt 2)</h3>
+                <p style="margin-top: 1rem;">Continuação: Configurando views, templates e forms para interagir com o
+                    banco de dados legado.</p>
+                <a href="articles/django-legacy-db-2.html" class="article-link"
+                    style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1.5rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                    onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                    onmouseout="this.style.borderBottom='1px solid transparent'">Ler Artigo <i
+                        class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+
+            <!-- Artigo 6 -->
+            <div class="glass">
+                <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 1rem;"><i
+                        class="fab fa-python"></i> Django</div>
+                <h3>Django e Design Patterns</h3>
+                <p style="margin-top: 1rem;">Conceitos fundamentais como DRY, KISS, YAGNI e como eles se aplicam ao
+                    desenvolvimento com Django.</p>
+                <a href="articles/django-design-patterns.html" class="article-link"
+                    style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1.5rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                    onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                    onmouseout="this.style.borderBottom='1px solid transparent'">Ler Artigo <i
+                        class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+
+            <!-- Artigo 7 -->
+            <div class="glass">
+                <div style="color: var(--secondary-accent); font-size: 0.8rem; margin-bottom: 1rem;"><i
+                        class="fab fa-python"></i> Python</div>
+                <h3>Envio de E-mail com Python</h3>
+                <p style="margin-top: 1rem;">Aprenda a enviar e-mails automatizados utilizando a biblioteca nativa
+                    smtplib do Python.</p>
+                <a href="articles/python-smtplib.html" class="article-link"
+                    style="color: var(--accent-color); text-decoration: none; display: inline-block; margin-top: 1.5rem; border-bottom: 1px solid transparent; transition: 0.3s;"
+                    onmouseover="this.style.borderBottom='1px solid var(--accent-color)'"
+                    onmouseout="this.style.borderBottom='1px solid transparent'">Ler Artigo <i
+                        class="fas fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

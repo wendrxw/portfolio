@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Command Line Interface | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../index.html#articles"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Flask Command Line Interface</h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Flask
+            </div>
+
+            <div class="article-content">
+                <p>Nesse artigo, iremos explorar o CLI do micro-framework flask. Para quem não conhece, o flask é um
+                    framework web, está para o python assim como o express está para o node.</p>
+
+                <h3>Entendendo o CLI...</h3>
+                <ul>
+                    <li>Ao instalar do Flask, automaticamente, será instalado uma interface de linha de comando
+                        <em>Click</em>, em seu virtualenv (ambiente virtual);</li>
+                    <li>Click é um pacote feito para criar comandos personalizados para sua aplicação Flask escrevendo o
+                        minimo possivel.</li>
+                </ul>
+
+                <pre><code># flask imports
+from flask import Flask
+
+def create_app():
+    ''' Função para criar um aplicativo Flask '''
+    # Instanciando a o objeto Flask()
+    app = Flask(__name__)
+    # retornando o objeto app
+    return app</code></pre>
+
+                <p>Semelhante aos comandos que o framework django possui para criar super-usuarios, criar apps, etc. o
+                    Click possibilita fazermos isso e o melhor é que podemos ir além e criar nossos proprios comandos,
+                    agilizando o desenvolvimento de nossos projetos.</p>
+
+                <h3>Dependencias</h3>
+                <ul>
+                    <li>Virtualenv</li>
+                    <li>Flask</li>
+                </ul>
+
+                <p><strong>OBS:</strong> <em>Irei partir da premissa de que você ja esta familiarizado com a
+                        configuração do ambiente e instalação das dependencias.</em></p>
+
+                <p>Sua estrutura de pastas deve ficar parecida com a minha:</p>
+                <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--7TxC1SOW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/8ef9y9n0jlywzpqpng5t.png"
+                    alt="Estrutura de pastas" style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Dentro do arquivo <em>__ init __.py</em> escreva o codigo da seguinte forma:</p>
+                <!-- Image placeholder, using external if local not found, assuming local copy exists based on plan -->
+                <img src="../media/uploads/2024/08/28/image_bODPLm3.png" alt="Código init.py"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Agora, dentro do arquivo <em>settings.py</em> iremos criar o nosso comando. O mesmo será responsável
+                    por criar apps em nossa aplicação, sem precisarmos criar arquivo por arquivo.</p>
+
+                <h3>Contextualizando...</h3>
+                <p>Como flask é um micro-framework, o mesmo vem apenas com o basico para criarmos uma aplicação web,
+                    dessa forma, não temos tantas ferramentas prontas, como o django, por exemplo. No django, ao
+                    executarmos o comando <em>django-admin startapp</em> criamos uma app dentro do diretorio em que você
+                    esta, contendo dentro dessa app os arquivos necessários para que possamos trabalhar, agilizando o
+                    processo de criação de nossa aplicação.</p>
+
+                <p>Dito isso, iremos fazer algo parecido para nossa aplicação flask, sem muita complexidade e de forma
+                    intuitiva, para que vocês possam ver como funciona o CLI do Flask.</p>
+
+                <p>Dessa forma, dentro do arquivo <em>settings.py</em>, iremos inserir o seguinte codigo:</p>
+                <img src="../media/uploads/2024/08/28/image_AEHM3NO.png" alt="Código settings.py"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Resumidamente, o codigo acima cria uma app dentro da pasta app do projeto, contendo os arquivos
+                    comumente usados, sendo eles, <em>__ init __.py</em>, <em>views.py</em>, <em>models.py</em>,
+                    <em>forms.py</em>.</p>
+
+                <p>Agora, vamos voltar para nosso arquivo <em>__ init __.py</em> e adicionar o seguinte trecho de
+                    código:</p>
+                <img src="../media/uploads/2024/08/28/image_ezW8BS9.png" alt="Update init.py"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>O arquivo <em>__ init __.py</em> completo ficará assim:</p>
+                <img src="../media/uploads/2024/08/28/image_2QqxBqb.png" alt="Init.py completo"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Agora, vamos exportar nossas variaveis de ambiente, para que a aplicação flask funcione corretamente.
+                    Siga os passos:</p>
+                <ul>
+                    <li>Em seu terminal, dentro da pasta <strong>projeto</strong>, digite consecutivamente:</li>
+                </ul>
+
+                <pre><code>export FLASK_APP=project
+export FLASK_ENV=Development
+export FLASK_DEBUG=True</code></pre>
+
+                <p>Feito isso, ja podemos executar o seguinte comando no terminal, para, de fato, utilizarmos nosso
+                    comando:</p>
+
+                <pre><code>flask startapp projeto/usuarios</code></pre>
+
+                <p>O comando acima irá criar nossa app dentro da pasta projeto.</p>
+                <p>Após executar o mesmo, a seguinte ordenação de pasta será criada:</p>
+                <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--9NJUQe_6--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/663q21c8liahgcrpcplo.png"
+                    alt="Estrutura final" style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Pronto, agora ja conseguimos agilizar um de nossos procedimentos diarios no desenvolvimento de uma
+                    aplicação flask.</p>
+
+                <h3>Considerações finais</h3>
+                <p>O intuito desse artigo foi mostrar a liberdade que temos com o flask e o quanto o mesmo é expansível
+                    a modo de facilitar a nossa vida no dia a dia.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

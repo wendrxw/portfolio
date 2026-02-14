@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de E-mail com Python | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../articles.html"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Envio de E-mail com Python-smtplib</h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Python
+            </div>
+
+            <div class="article-content">
+                <p>Hoje em dia, qualquer sistema que se diga “bom”, precisa no minimo ter um mecamisno para envio de
+                    e-mail. Pensando dessa forma, venho lhes trazer um passo à passo para trabalhar com envio de e-mail
+                    com python, usando a biblitoeca “smtplib”.</p>
+
+                <p>Como vamos usar uma biblioteca padrão do python, não precisaremos instalar nada, apenas importar a
+                    biblioteca para o nosso projeto. Sendo assim, podemos dar inicio.</p>
+
+                <p>Crie um arquivo “.py” para escrever nosso codigo, no meu caso criei um arquivo chamado “app.py”. Após
+                    isso, importe a biblioteca “smtplib”, da seguinte forma:</p>
+                <ul>
+                    <li><em>Import smtplib</em></li>
+                </ul>
+                <img src="https://miro.medium.com/v2/resize:fit:562/1*c1jySVn4ZZVGawVyKcQaBw.png" alt="Import smtplib"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Percebe-se que no comentário da imagem àcima digo que, iremos trabalhar de forma estática, ou seja,
+                    os dados de remetente e destinatário estarão fixados no codigo, ao invés de recebermos ele
+                    dinamicamente de um formulário (ja que não usaremos interface web, somente python puro).</p>
+
+                <p>Nesse artigo usaremos o bloco de teste “try” & “except”, para trabalhar com possiveis erros e
+                    manipula-los caso ocorram.</p>
+
+                <p>Basicamente,:</p>
+                <p><em>- O bloco “try” permite testar um bloco de código para erros;</em></p>
+                <p><em>- O bloco “except” permite lidar com o erro.</em></p>
+
+                <p>Ja que estamos falando dessa estrturação, nada melhor do que mostrar como ela funciona, na pratica.
+                    Vamos começar pelo “try”:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:554/1*aC4NaQaHBerRn97RWjBKQw.png" alt="Bloco Try"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>- Vamos lá, <em>na linha 6</em> eu inicio o bloco de teste “try”;</p>
+                <p>- Na<em> linha 8</em> instanciamos o rementente e seu e-mail (e-mail de quem esta enviando o correio
+                    eletronico);</p>
+                <p>- Na <em>linha 11</em> instanciamos o destinatario (quem recebe o e-mail);</p>
+                <p>- Na <em>linha 14 </em>mostramos ao sistema qual mensagem iremos enviar ao destinatário;</p>
+                <p>- <em>Linhas 17</em> e <em>18 </em>são definidos o email e senha do remetente, para que seja liberado
+                    o acesso do script;</p>
+                <p>- Na<em> linha 21</em>, usaremos o servidor de envio do seu provedor de e-mail, no caso do gmail
+                    ficará: <em>smtp.gmail.com:587;</em></p>
+                <p>- Das <em>linhas 22</em> à <em>linha 26</em> configuramos nossos parâmetros de entrada e iniciação do
+                    servidor de envio;</p>
+
+                <p>Para finalizarmos o código, iremos escrever nosso “except”, que será simples, por hora, apenas para
+                    mérito de aprendizado, ficará:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:554/1*zFZr2qwc8vvzuBC5W8nh-g.png" alt="Bloco Except"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Apenas será criado um “print” para caso de algo de errado e não trataremos a mensagem.</p>
+
+                <p>Para testar o que foi feito, abra seu terminal, acesse o diretório do seu arquivo e digite o seguinte
+                    comando:</p>
+                <ul>
+                    <li><em>python app.py</em></li>
+                </ul>
+
+                <p>Pode-se observar que estou usando o python3 para executar meu codigo, mas nesse caso, fica à sua
+                    escolha.</p>
+
+                <p>Após executar o arquivo “app.py” recebi a mensagem “E-mail enviado com sucesso!”, retorno no qual
+                    deixei fixado na linha 28 do nosso script. Segue abaixo o codigo completo:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:584/1*Y2Rbep2adqCftGbW2Bl7Ig.png" alt="Código Completo"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>*Alertando que o envio pode demorar dependendo de sua conexão com a internet e o seu provedor de
+                    e-mail*</p>
+
+                <p>Dessa forma finalizo esse passo à passo relacionado ao envio de e-mail usando a biblioteca smtplib,.
+                </p>
+                <p>Obrigado!</p>
+            </div>
+        </article>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

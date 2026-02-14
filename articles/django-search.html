@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscas com Django | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../index.html#articles"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Realizando buscas em registros com Django</h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Django
+            </div>
+
+            <div class="article-content">
+                <p>Nesse artigo irei mostrar um passo à passo de como realizar uma busca de registros e listar no banco
+                    de dados.</p>
+
+                <h3>1. Ferramentas.</h3>
+                <p>Usarei o banco de dados SQLite que ja vem configurado como padrão no django e facilitará nosso
+                    entendimento, deixando essa explicação mais rapida;</p>
+                <p>Usarei, também, o editor de texto Visual Studio Code, mas nesse caso você poderá usar o editor do seu
+                    gosto.</p>
+                <p><strong>OBS:</strong> Lembrando que eu darei foco ao sistema de buscas e não à questão de inserção de
+                    dados no banco, o exemplo que verás aqui será com registros ja inseridos no banco de dados, trarei
+                    somente a estrutura da base de dados.</p>
+
+                <h3>2. Iniciando o projeto:</h3>
+                <p>Tendo como base de que você ja instalou o django e configurou o ambiente virtual, inicie sua APP e
+                    seu PROJETO da seguinte forma:</p>
+                <p>Para iniciar o projeto: <em>django-admin manage.py startproject config .</em></p>
+                <p>Para iniciar a app: <em>django-admin manage.py startapp core</em></p>
+                <p><strong>Obs: </strong>Dei o nome do meu projeto de config (ja que as configurações da aplicação se
+                    localiza naquele diretório);</p>
+                <p>Dei o nome na minha app de core, para representar a app principal da aplicação.</p>
+                <p><em>Utilizei o um “ponto final” logo após o nome do meu projeto para que, o django não crie subpasta
+                        no direitorio de configuração do projeto.</em></p>
+
+                <h3>3. Instanciando a app no arquivo ‘settings.py’</h3>
+                <p>Dentro do diretório ‘config’, entre no arquivo ‘settings.py’ e encontre o termo ‘INSTALLED_APPS’ e
+                    adicione sua app na lista, como na imagem a seguir:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:556/1*7KE79q8Js_oufeSOiyWs_A.png" alt="Installed Apps"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Após realizar essa configuração, ja podemos abrir nossa app (pasta core, no meu caso) e iniciar a
+                    criação do nosso model.</p>
+
+                <h3>1. ‘Models.py’, criando nosso banco de dados.</h3>
+                <p>Dentro da nosso app entre na pasta ‘models.py’, onde criaremos nossa tabela do banco de dados.</p>
+                <p>Imagine a seguinte situação: “Temos uma tela de pacientes e queremos facilitar a busca dos pacientes,
+                    pelo nome”.</p>
+                <p>Nossa tabela ficará da seguinte forma:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:554/1*8c5UFLaYivJcyI7pfBPaQQ.png" alt="Models"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Na linha 3 eu crio minha classe, quer representará minha tabela no banco de dados, na linha 8 crio
+                    uma classe Meta, para sobrescrever o método do django e renomear minha tabela.</p>
+                <p>Para confirmar a criação da nossa tabela, vamos dar um migrate:</p>
+                <p><em>python manage.py makemigrations</em> -> Para receber as alterações</p>
+                <p><em>python manage.py migrate</em> -> Para realizar as alterações</p>
+                <p>Se tudo ocorrer bem, sera retornado no terminal o seguinte contexto:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:554/1*HEXjLTp09xOyxyZ5O4JwOg.png" alt="Migrations"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <h3>1. Template.</h3>
+                <p>Para compor nosso template, usaremos bootstrap.</p>
+                <p>Faremos um alteração no arquivo config da nossa aplicação, por padrão o django busca o “HTML” dentro
+                    da pasta templates, pasta na qual temos que criar manualmente, iremos criar essa pasta na raiz do
+                    projeto e por sua vez mostrar para o django aonde ele deve buscar essa pasta.</p>
+                <p>Procure dentro do arquivo config o termo “TEMPLATES”, por padrão ele virá assim:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:578/1*I0oz6eCgYYYmaycMMgeiZw.png" alt="Templates Config"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Iremos modificar esse trecho de codigo para ficar dessa forma:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:582/1*Zg4PRbBBHOjrqg-2jU6Tfg.png"
+                    alt="Templates Config Alterado" style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <h3>1. Listando os dados na tabela.</h3>
+                <p>Bom, como dito no inicio desse artigo, não entrarei no metódo de inserção de dados no banco. Sendo
+                    assim, iremos listar nossos dados na tabela, para isso iremos no arquivo “views.py” dentro da nossa
+                    app.</p>
+                <p>Faremos as seguintes modificações:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:594/1*1LgB97i0DELfFyAVaD7h6A.png" alt="Views Listagem"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Agora, devemos ir no nosso arquivo HTML e criar uma estrtura para que nossa tabela receba esses
+                    dados:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:578/1*YEWlFEAwUrhxwDhxM1oOog.png" alt="HTML Tabela"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Ja que temos a listagem vamos focar na busca desses dados.</p>
+                <p>No campo input do seu HTML use a tag “name” para que a nossa função reconheça o input e possa fazer a
+                    busca:</p>
+                <pre><code>&lt;form method="GET"&gt;
+    &lt;div class="input-group-prepend"&gt;
+        &lt;button class="btn btn-outline-secondary" type="submit" id="button-addon1"&gt;Buscar&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;input type="text" class="form-control" placeholder="" name="search" id="search"&gt;
+&lt;/form&gt;</code></pre>
+
+                <p>Agora, em nosso arquivo “views.py” faremos nossa logica para que, o django realize a busca dos
+                    registros. Ficará da seguinte forma:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:568/1*Ve45BAkTl3QHEGnscdHh_w.png" alt="Views Busca"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Agora se formos em nossa pagina e realizarmos uma busca em nosso input, veremos que ele listará
+                    somente os dados que contenham as letras que digitarmos, veja:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:550/1*r7opvsH2b_HUxvxOR4fJYQ.png" alt="Resultado Busca"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Assim fica nossa tela com a listagem geral.</p>
+                <img src="https://miro.medium.com/v2/resize:fit:553/1*V4vWZia2B3GQYw7GEXG6bg.png" alt="Listagem Geral"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Esse artigo tinha como finalidade mostrar como se realiza uma busca usando apenas o backend, sem ter
+                    conhecimento nenhum de Javascript e JQuery, mas requer um conhecimento prévio de Django para
+                    realizar corretamente o passo a passo dessa publicação. Espero que tenham gostado!</p>
+            </div>
+        </article>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

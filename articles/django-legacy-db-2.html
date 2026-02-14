@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeando Banco de Dados Legados (Parte 2) | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../articles.html"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Mapeando banco de dados legados, com Django (Parte 2)
+            </h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Django
+            </div>
+
+            <div class="article-content">
+                <p>Chegando aqui, provavelmente você tenha lido a parte 1 desse artigo, caso não tenha lido, clique no
+                    link: <a href="django-legacy-db-1.html" style="color: var(--accent-color);">Parte 1</a></p>
+                <p>Leia, e depois volte aqui, para darmos continuidade.</p>
+
+                <p>Continuando…</p>
+                <p>Rapidamente configurei um template “index.html”, para realizar o POST e GET dos dados. O procedimento
+                    de configuração da url, template e view, ficará resumido nas imagens a seguir:</p>
+
+                <p><em>Arquivo views.py</em></p>
+                <img src="https://miro.medium.com/v2/resize:fit:556/0*Y3hAYRJ1rGGqYvIR" alt="views.py"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p><em>Arquivo app/urls.py</em></p>
+                <img src="https://miro.medium.com/v2/resize:fit:466/0*tRVX5OzMTxtDoKew" alt="app urls.py"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p><em>Arquivo config/urls.py</em></p>
+                <img src="https://miro.medium.com/v2/resize:fit:700/0*qMoHgLXcu-ln1xTH" alt="config urls.py"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p><em>Arquivo forms.py</em></p>
+                <img src="https://miro.medium.com/v2/resize:fit:418/0*OlY4sgztQxCYgjqW" alt="forms.py"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p><em>Arquivo templates/produtos.html</em></p>
+                <img src="https://miro.medium.com/v2/resize:fit:481/0*lmuIR-HLjyMswyA5" alt="templates produtos.html"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p><em>Aos que ja estão acostumados com meus artigos, sabem que, não explico nada além do que o
+                        necessário, entenda que, ao ler esse artigo, suponho que ja saiba algo sobre Python/Django e que
+                        esteja atras de algo especifico ou, aprofundar conhecimento. Sendo assim, não entrarei no mérido
+                        de explicar, em detalhes, o que fiz em cada tela.</em></p>
+
+                <p>Ao configurarmos nossa ‘<em>view’, ‘template’, ‘forms’, ’models’ </em>e suas <em>‘urls’</em>, ja
+                    podemos testar nossa aplicação:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:700/0*4eSTe2a9KYB43oNg" alt="Teste Aplicação"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Preencha o formulário e clique no botão para salvar:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:700/0*etxVJkf2YlwYmtLr" alt="Formulário Preenchido"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Após dar submit, em seu formulário, verás que a listagem que fizemos logo abaixo será preenchida com
+                    os valores que inserimos nos inputs, sendo assim, a tela ficará dessa forma:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:700/0*y9nn_8h8OsiSkdI5" alt="Resultado Listagem"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Bom, basicamente é isso, se você seguiu todos os passos desse artigo, é certeza que conseguirá o
+                    resultado que viu na imagem acima.</p>
+                <p>Entenda que, o objetivo desse artigo não é lhe dar 100% do conhecimento desse tema, mas sim,
+                    despertar em você uma idéia do que se trata tal assunto e buscar novas experiencias envolvendo banco
+                    de dados legados, ou até mesmo, lhe ajudar em um problema que esta enfrentando, quanto a questão
+                    abordada aqui.</p>
+            </div>
+        </article>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeando Banco de Dados Legados (Parte 1) | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../articles.html"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Mapeando banco de dados legados, com Django (Parte 1)
+            </h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Django
+            </div>
+
+            <div class="article-content">
+                <p>Já pensou em usar um banco de dados em que não precise cria-lo pelo Django?</p>
+                <p>Não?</p>
+                <p>Então, imagine as seguintes situações:</p>
+                <ol>
+                    <li>Tu estás trabalhando em uma empresa e, nessa empresa, forma-se uma equipe para desenvolver um
+                        projeto qualquer, a equipe é composta por um desenvolvedor back-end, outro front-end e um DBA
+                        (Database administrator). Então, o DBA cria um banco de dados com todos os relacionamentos entre
+                        tabelas, tudo certinho, pronto para uso;</li>
+                    <li>Outro caso, talvez o mais comum em nosso país, seria o uso de um banco de dados mais antigo,
+                        talvez de um sistema que esta sendo atualizado e a empresa queira usar o mesmo banco de dados.
+                    </li>
+                </ol>
+
+                <p>Dado as duas situações, como faria para usar os bancos de dados igualmente da forma em que está? Iria
+                    fazer uma “cópia” do banco de dados e seus relacionamentos, manualmente?</p>
+                <p>Obvio que não (pelo menos, eu espero), dessa forma, venho lhes apresentar uma solução simples, sem
+                    muito esforço para ser usada, usa-se o comando “inspectdb”, para tal finalidade. Sem mais delongas,
+                    vamos ao que interessa!</p>
+
+                <p>Primeiramente, tens em mente que, suponho que saiba algo sobre python e o framework django, de
+                    preferencia em suas versões mais recentes (3.7 e 2.2, respectivamente). Sabendo disso, ja podemos
+                    criar a estrutura base de nosso projeto:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:303/0*coEtSPnQ-8FgcjIy" alt="Estrutura Projeto"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Após a organização basica de nosso projeto, iremos seguir dois passos essenciais para a composição do
+                    nosso projeto. Sendo eles, a instalação da lib ”pymysql” e a configuração de nosso banco de dados
+                    (acho que ficou explicito que usaremos o MySQL).</p>
+                <p>Então, vamos dar continuidade, instalando a lib “pymysql”, da seguinte forma:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:700/0*qiFl-4esCuqbluWZ" alt="Instalando PyMySQL"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Com o componente instalado, vamos dar inicio a nossa configuração do banco de dados, iremos dizer ao
+                    Django o nome do banco, o host, o usuario e a senha, para que, o framework saiba onde procurar os
+                    dados sempre que for solicitado. Então, vamos lá:</p>
+                <p>Abra o arquivo “settings.py”, ache o item “DATABASES” e preencha com as informações de seu banco de
+                    dados.</p>
+                <img src="https://miro.medium.com/v2/resize:fit:469/0*ZL4BM425Lwf-yIEF" alt="Configuração Database"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Explicamando brevemente:</p>
+                <p><strong>ENGINE: </strong>É, basicamente, a referencia de seu banco de dados, no caso desse artigo,
+                    MySQL;</p>
+                <p><strong>NAME: </strong>Será o nome de seu banco de dados;</p>
+                <p><strong>USER: </strong>Usuário “root” de seu banco de dados;</p>
+                <p><strong>PASSWORD: </strong>Senha do seu usuário “root”;</p>
+                <p><strong>HOST: </strong>É o endereço em que se encontra seu banco de dados;</p>
+                <p><strong>PORT: </strong>É a porta que o modelo usa, no caso do MySQL, usa-se a porta 3306, por padrão.
+                </p>
+
+                <p>Pronto, passada a parte chata, agora iremos realizar o procedimento crucial para que todo esse artigo
+                    faça algum sentido (ou não), iremos usar a seguinte linha para <em>mapear</em> as tabelas de nosso
+                    banco de dados legado:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:700/0*WdDJF4ZybVJuIoLG" alt="Comando inspectdb"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Dessa simples forma, obtivemos o seguinte resultado:</p>
+                <img src="https://miro.medium.com/v2/resize:fit:700/0*LNkbFmT8hY_GQhqz" alt="Resultado inspectdb"
+                    style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+
+                <p>Agora, ja podemos realizar alguns testes com nosso banco de dados, que tal inserirmos e listarmos
+                    alguns dados na tela?</p>
+                <p>Veja a sequência, na parte 2 desse artigo: <a href="django-legacy-db-2.html"
+                        style="color: var(--accent-color);">Parte 2</a></p>
+            </div>
+        </article>
+    </div>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--secondary-accent); font-size: 0.9rem;">
+        <p>&copy; 2026 Wendrew Oliveira. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
