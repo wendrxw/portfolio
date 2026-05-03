@@ -1,0 +1,100 @@
+<div class="article-content">
+
+    <aside style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 10px; margin-bottom: 2rem;">
+        🐍 Este guia mostra como usar o Python sem GIL (No-GIL), permitindo execução paralela real com threads.
+        Lembre-se: ainda é experimental.
+    </aside>
+
+    <h3>Introdução</h3>
+    <p>
+        O Python tradicional utiliza o <strong>GIL (Global Interpreter Lock)</strong>, que impede múltiplas threads de executarem código Python em paralelo.
+    </p>
+    <p>
+        Com a proposta da PEP 703, surgiu uma versão experimental do Python que permite <strong>execução paralela real com threads</strong>, removendo essa limitação.
+    </p>
+
+    <h3>Avisos importantes</h3>
+    <ul>
+        <li>O Python sem GIL ainda é <strong>experimental</strong></li>
+        <li>Nem todas as bibliotecas são compatíveis</li>
+        <li>Extensões em C podem não funcionar corretamente</li>
+        <li>Não recomendado para produção (ainda)</li>
+    </ul>
+
+    <h3>Pré-requisitos</h3>
+    <p>Certifique-se de ter as dependências básicas instaladas:</p>
+
+    <pre><code>sudo apt install build-essential git libssl-dev zlib1g-dev \
+libncurses5-dev libreadline-dev libsqlite3-dev libffi-dev</code></pre>
+
+    <p><em>(os nomes podem variar dependendo da distro — no Gentoo/FreeBSD você já deve saber ajustar)</em></p>
+
+    <hr>
+
+    <h3>1) Baixando o código-fonte do Python</h3>
+
+    <pre><code>git clone https://github.com/python/cpython.git
+cd cpython</code></pre>
+
+    <h3>2) Selecionando a versão com suporte ao no-GIL</h3>
+
+    <pre><code>git checkout 3.13</code></pre>
+
+    <h3>3) Compilando o Python sem GIL</h3>
+
+    <pre><code>./configure --disable-gil
+make -j$(nproc)
+sudo make install</code></pre>
+
+    <h3>4) Entendendo os binários gerados</h3>
+    <p>Após a instalação, você terá dois binários principais:</p>
+
+    <ul>
+        <li><code>python3.13</code> → versão <strong>normal (com GIL)</strong></li>
+        <li><code>python3.13t</code> → versão <strong>sem GIL (no-GIL)</strong> ✅</li>
+    </ul>
+
+    <p>O sufixo <strong><code>t</code></strong> significa <em>threaded</em> (sem GIL).</p>
+
+    <h3>5) Executando o Python sem GIL</h3>
+
+    <pre><code>/usr/local/bin/python3.13t --version</code></pre>
+
+    <p>Ou diretamente:</p>
+
+    <pre><code>python3.13t</code></pre>
+
+    <h3>6) Verificando se o GIL está desativado</h3>
+
+    <p>Dentro do interpretador:</p>
+
+    <pre><code>import sys
+print(sys._is_gil_enabled())</code></pre>
+
+    <p><strong>Resultado esperado:</strong></p>
+
+    <pre><code>False</code></pre>
+
+    <h3>7) Criando um alias (opcional)</h3>
+
+    <p>Para facilitar o uso no terminal:</p>
+
+    <pre><code>alias python-nogil="/usr/local/bin/python3.13t"</code></pre>
+
+    <p>Assim você pode executar:</p>
+
+    <pre><code>python-nogil</code></pre>
+
+    <h3>Fechando</h3>
+    <p>
+        O Python sem GIL representa um passo importante para melhorar desempenho em aplicações concorrentes.
+        Apesar de ainda ser experimental, já é possível testar e explorar seus benefícios.
+    </p>
+
+    <ul>
+        <li>Teste benchmarks com threads</li>
+        <li>Valide compatibilidade de bibliotecas</li>
+        <li>Evite uso em produção por enquanto</li>
+    </ul>
+
+</div>
