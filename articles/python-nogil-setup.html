@@ -1,9 +1,44 @@
-<div class="article-content">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <aside style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 10px; margin-bottom: 2rem;">
-        🐍 Este guia mostra como usar o Python sem GIL (No-GIL), permitindo execução paralela real com threads.
-        Lembre-se: ainda é experimental.
-    </aside>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python sem GIL (No-GIL) | Wendrew Oliveira</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="glass"
+        style="position: fixed; top: 0; width: 100%; z-index: 1000; border-radius: 0; border-top: none; border-left: none; border-right: none; padding: 1rem 2rem;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="../index.html"
+                style="font-family: var(--font-heading); font-size: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700;">
+                WENDREW<span style="color: var(--accent-color);">.DEV</span>
+            </a>
+            <a href="../index.html#articles"
+                style="color: var(--text-color); text-decoration: none; font-size: 1rem; transition: 0.3s;"><i
+                    class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 8rem; padding-bottom: 5rem;">
+        <article class="glass start-visible">
+            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Python sem GIL (No-GIL)</h1>
+            <div style="color: var(--secondary-accent); margin-bottom: 2rem; font-size: 0.9rem;">
+                <i class="far fa-calendar-alt"></i> Artigo Técnico | <i class="fab fa-python"></i> Python
+            </div>
+
+            <div class="article-content">
+
+                <aside style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 10px; margin-bottom: 2rem;">
+                    🐍 Este guia mostra como usar o Python sem GIL (No-GIL), permitindo execução paralela real com threads.
+                    Lembre-se: ainda é experimental.
+                </aside>
 
     <h3>Introdução</h3>
     <p>
@@ -97,4 +132,9 @@ print(sys._is_gil_enabled())</code></pre>
         <li>Evite uso em produção por enquanto</li>
     </ul>
 
-</div>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>
