@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }} | Wendrew Oliveira{% endblock %}
+
+{% block content %}
+<section class="container glass-section article-detail">
+    <div class="article-top">
+        <div class="project-meta">{% if article.category %}{{ article.category.name }}{% else %}Tecnologia{% endif %}</div>
+        <h2>{{ article.title }}</h2>
+        <p class="article-excerpt">{{ article.excerpt }}</p>
+        <div class="article-meta">Publicado em {{ article.published_at|date:'d/m/Y' }} • {{ article.views }} visualizações</div>
+    </div>
+
+    {% if article.cover_image %}
+        <img src="{{ article.cover_image.url }}" alt="Capa do artigo" class="article-cover">
+    {% endif %}
+
+    <div class="glass article-content">
+        {{ article.content|safe }}
+    </div>
+
+    <div class="share-block glass">
+        <h3>Compartilhar</h3>
+        <div class="share-buttons">
+            <a href="https://twitter.com/intent/tweet?text={{ article.title|urlencode }}&url={{ request.build_absolute_uri(article.get_absolute_url)|urlencode }}" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri(article.get_absolute_url)|urlencode }}" target="_blank">LinkedIn</a>
+            <a href="mailto:?subject={{ article.title|urlencode }}&body={{ request.build_absolute_uri(article.get_absolute_url)|urlencode }}" target="_blank">Email</a>
+        </div>
+    </div>
+
+    {% if article.github_url or article.external_url %}
+        <div class="glass resources-block">
+            <h3>Recursos do artigo</h3>
+            {% if article.github_url %}
+                <a href="{{ article.github_url }}" target="_blank">Repositório GitHub</a>
+            {% endif %}
+            {% if article.external_url %}
+                <a href="{{ article.external_url }}" target="_blank">Link Externo</a>
+            {% endif %}
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

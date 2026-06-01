@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Artigos | Wendrew Oliveira{% endblock %}
+
+{% block content %}
+<section class="container glass-section"  style="margin-top: 7rem;">
+    <h2>Artigos</h2>
+    <div class="grid projects-grid">
+        {% for article in articles %}
+            <div class="glass project-card">
+                <div class="project-meta">{% if article.category %}{{ article.category.name }}{% else %}Tecnologia{% endif %}</div>
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.excerpt }}</p>
+                <div class="article-meta">Publicado em {{ article.published_at|date:'d/m/Y' }} • {{ article.views }} visualizações</div>
+                <a href="{{ article.get_absolute_url }}" class="project-link">Ler Artigo</a>
+            </div>
+        {% empty %}
+            <div class="glass project-card">
+                <p>Nenhum artigo disponível no momento.</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

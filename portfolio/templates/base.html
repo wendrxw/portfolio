@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Wendrew Oliveira | Senior Python Developer{% endblock %}</title>
+    <meta name="description" content="Portfólio de Wendrew Oliveira - desenvolvedor Python, Linux e sistemas inteligentes.">
+    <meta property="og:title" content="Wendrew Oliveira | Senior Python Developer" />
+    <meta property="og:description" content="Portfólio profissional e blog técnico com artigos, projetos e sobre mim." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="glass header-nav">
+        <div class="logo">WDRXW</div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}#about">Sobre</a>
+            <a href="{% url 'home' %}#skills">Stack</a>
+            <a href="{% url 'home' %}#projects">Projetos</a>
+            <a href="{% url 'blog:list' %}">Artigos</a>
+            <a href="{% url 'home' %}#contact">Contato</a>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        &copy; 2026 Wendrew Oliveira. Ribeirão Preto, SP.
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

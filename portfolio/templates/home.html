@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Wendrew Oliveira | Portfolio{% endblock %}
+
+{% block content %}
+<section id="hero">
+    <h1>Wendrew Oliveira</h1>
+    <p id="typing-text">Senior Python Developer | Linux Enthusiast</p>
+    <div class="hero-actions">
+        <a href="#projects" class="glass button-link">Ver Projetos</a>
+    </div>
+</section>
+
+<section id="about" class="container glass-section mt-12" style="margin-top: 3rem;">
+    <h2>Sobre Mim</h2>
+    <p>Profissional altamente qualificado com experiência diversificada em desenvolvimento de software e administração de sistemas, especializado em ambientes Unix/Linux, incluindo FreeBSD, Gentoo, Fedora, Arch Linux e Devuan.</p>
+    <p>Possuo forte competência em desenvolvimento de backend com Python, incluindo frameworks como Django, Flask, FastAPI e gerenciamento de bancos de dados PostgreSQL, SQLite, MySQL, REDIS, DynamoDB e MongoDB.</p>
+    <p>Experiência em automação de tarefas usando scripts Python e ferramentas de linha de comando.</p>
+</section>
+
+<section id="skills" class="container">
+    <h2>Stack Técnico</h2>
+    <div class="grid cards-grid">
+        <div class="glass card"><h3>🐍 Python</h3><p>FastAPI, Django, Flask</p></div>
+        <div class="glass card"><h3>☁️ Cloud & AWS</h3><p>Lambda, SQS, SNS, S3, EC2, ECS</p></div>
+        <div class="glass card"><h3>🐧 Linux</h3><p>Arch, Fedora, Gentoo, FreeBSD, Devuan</p></div>
+        <div class="glass card"><h3>🗄️ Databases</h3><p>PostgreSQL, MySQL, Redis, MongoDB, DynamoDB</p></div>
+        <div class="glass card"><h3>🔧 DevOps</h3><p>Docker, CI/CD, Jenkins, Git</p></div>
+        <div class="glass card"><h3>🏗️ Arquitetura</h3><p>Clean Architecture, Microsserviços, CQRS</p></div>
+        <div class="glass card"><h3>📡 Mensageria</h3><p>RabbitMQ, SQS, SNS</p></div>
+        <div class="glass card"><h3>🎯 Funcional</h3><p>Haskell, Type Safety</p></div>
+    </div>
+</section>
+
+<section id="projects" class="container">
+    <h2>Projetos em Destaque</h2>
+    <div class="grid projects-grid">
+        {% for project in featured_projects %}
+            <div class="glass project-card">
+                <div class="project-meta">{{ project.subtitle }}</div>
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <a href="{{ project.url }}" target="_blank" class="project-link">GitHub Code</a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="articles" class="container">
+    <h2>Artigos Recentes</h2>
+    <div class="grid projects-grid">
+        {% for article in recent_articles %}
+            <div class="glass project-card">
+                <div class="project-meta">{% if article.category %}{{ article.category.name }}{% else %}Tecnologia{% endif %}</div>
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.excerpt }}</p>
+                <a href="{{ article.get_absolute_url }}" class="project-link">Ler Artigo</a>
+            </div>
+        {% empty %}
+            <div class="glass project-card"><p>Nenhum artigo publicado ainda.</p></div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="contact" class="container glass-section">
+    <h2>Vamos Conversar?</h2>
+    <p>Interessado em colaboração ou apenas quer bater um papo técnico?</p>
+    <div class="contact-links">
+        <a href="https://github.com/wendrxw" target="_blank">🐙 GitHub</a>
+        <a href="https://www.linkedin.com/in/wendrew-oliveira-31252411a/" target="_blank">💼 LinkedIn</a>
+        <a href="https://twitter.com/dreeeew_s" target="_blank">🐦 Twitter</a>
+    </div>
+</section>
+{% endblock %}
